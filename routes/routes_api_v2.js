@@ -13,6 +13,12 @@ router.get('/info', function(request, response) {
     });
 });
 
+router.get('/api/v2/recipes', function(request, response){
+   var recipes = require('../recipes');
+   response.send(recipes);
+});
+
+
 router.get('*', function(request, response){
    response.status(404);
    response.send("404 - Response not found " + '\n'
