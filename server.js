@@ -1,12 +1,6 @@
-/**
- * Created by Kayvon Rahimi on 3-5-2017.
- */
-/**
- * Created by Kayvon Rahimi on 3-5-2017.
- */
 var http = require('http');
 var express = require('express');
-var config = require('config.json');
+var config = require('config.json/lib/config.json');
 
 var app = express();
 
@@ -25,7 +19,8 @@ app.get('/hi', function(request, response){
 });
 
 app.get('/about', function(request, response){
-    response.send('This project serves as practice for programming classes.');
+    response.send('This project serves as practice for programming classes.' + '\n'  +
+        'This file is currently hosted on port ' + port );
 });
 
 app.listen( port, function(){
