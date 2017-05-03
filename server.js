@@ -14,6 +14,13 @@ app.get( '*' , function(req, res, next){
     next();
 });
 
+app.all('*', function(request, response, next) {
+    console.log(request.method + " " + request.url);
+    next();
+})
+
+app.use('/api/v1', require('./routes/routes_api_v1'));
+
 app.get('/hi', function(request, response){
     response.send('The server has noticed you.');
 });
