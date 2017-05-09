@@ -14,7 +14,7 @@ router.get('/info', function(request, response) {
     });
 });
 
-router.get('/api/v2/recipes', function(request, response){
+router.get('/recipes', function(request, response){
    response.json(recipes);
 });
 
