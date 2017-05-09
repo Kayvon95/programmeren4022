@@ -5,6 +5,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var recipes = require('../recipes');
 
 router.get('/info', function(request, response) {
     response.status(200);
@@ -14,15 +15,13 @@ router.get('/info', function(request, response) {
 });
 
 router.get('/api/v2/recipes', function(request, response){
-   var recipes = require('../recipes');
-   response.send(recipes);
+   response.json(recipes);
 });
 
 
 router.get('*', function(request, response){
    response.status(404);
-   response.send("404 - Response not found " + '\n'
-       + "Wrong parameter, please check your URL again.")
+   response.json({ "description" : "404 - Response not found.    Wrong parameter, please check your URL again."});
 });
 
 module.exports = router;

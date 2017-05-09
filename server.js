@@ -19,7 +19,7 @@ app.all('*', function(request, response, next) {
     next();
 })
 
-app.use('/api/v1', require('./routes/routes_api_v1'));
+app.use('/api/v2', require('./routes/routes_api_v2'));
 
 app.get('/hi', function(request, response){
     response.send('The server has noticed you.');
